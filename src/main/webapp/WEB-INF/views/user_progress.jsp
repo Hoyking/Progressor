@@ -1,10 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Progressor</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/images/favicon.ico" />" type="images/x-icon">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/progress.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/owl.carousel.min.css" />">
@@ -15,13 +17,13 @@
     <header>
         <ul class="nav-block">
             <li class="nav-elem active">
-                <a class="nav-link" href="#1">Мой прогресc</a>
+                <a class="nav-link" href="/progressor">Мой прогресc</a>
             </li>
             <li class="nav-elem">
                 <a class="nav-link" href="#2">Создать</a>
             </li>
         </ul>
-        <a id="logo" href="#3"><img src="<c:url value="/resources/images/logo.png" />"></a>
+        <a id="logo" href="/progressor"><img src="<c:url value="/resources/images/logo.png" />"></a>
         <ul class="nav-block">
             <li class="nav-elem">
                 <a class="nav-link" href="#4">Регистрация</a>
@@ -32,567 +34,82 @@
         </ul>
     </header>
 
-    <div class="workout-group">
-        <div class="workout-title">
-            <p>Подтягивания<p>
-        </div>
-        <div class="workout-progress-area">
-            <div class="workout-car-wrap">
-                <div class="owl-carousel">
+	<div id="workout-groups">
+	
+		<c:forEach var="group" items="${groups}">		
+			<div class="workout-group">
+			
+				<div class="workout-title">
+		            <p>${group.name}<p>
+		        </div>
+		        
+		        <div class="workout-progress-area">
+		        	<div class="workout-car-wrap">
+		        		<div class="owl-carousel">
+		        		
+		        			<c:forEach var="day" items="${group.days}">
+		        				<div class="workout-day" success="${day.type}" size="${fn:length(day.sets)}">
+		        				
+		        					<div class="workout-date">
+		        						<p>${day.date}</p>
+		        					</div>
+		        					
+		        					<div class="workout-day-wrap">
+		        						<div class="workout-list">
+		        						
+		        							<c:forEach var="set" items="${day.sets}" varStatus="status">
+		        								<div class="workout-list-item">
+				                                    <div class="workout-iteration-num">
+				                                        <p>${status.index + 1}</p>
+				                                    </div>
+				                                    <div class="workout-iteration-value">
+				                                        <p>${set.reps} x ${set.weight} кг</p>
+				                                    </div>
+				                                </div>
+		        							</c:forEach>
+		        							
+		        						</div>
+		        						
+		        						<div class="workout-day-arrow">
+			                                <div class="workout-arrow-icon">
+			                                    <i class="fa" aria-hidden="true"></i>
+			                                </div>
+			                            </div>
+			                            
+		        					</div>
+		        					
+				        			<div class="workout-day-changer">
+			                            <i class="fa" aria-hidden="true"></i>
+			                        </div>
+			                        
+		        				</div>
+		        			</c:forEach>
+		        			
+		        			<a class="workout-day-add" href="/progressor/add_day">
+		                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+		                    </a>
+		                    
+		        		</div>
+		        	</div>
+		        </div>
+			</div>
+		</c:forEach>
+		
+	</div>
 
-                    <div class="workout-day" success="2" size="6">
-                        <div class="workout-date">
-                            <p>24 августа 2017 г.</p>
-                        </div>
-                        <div class="workout-day-wrap">
-
-                            <div class="workout-list">
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>5</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>6</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="workout-day-arrow">
-                                <div class="workout-arrow-icon">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="workout-day-changer">
-                            <i class="fa" aria-hidden="true"></i>
-                        </div>
-                    </div>
-
-                    <div class="workout-day" success="2" size="5">
-                        <div class="workout-date">
-                            <p>24 августа 2017 г.</p>
-                        </div>
-                        <div class="workout-day-wrap">
-
-                            <div class="workout-list">
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>5</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="workout-day-arrow">
-                                <div class="workout-arrow-icon">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="workout-day-changer">
-                            <i class="fa" aria-hidden="true"></i>
-                        </div>
-                    </div>
-
-                    <div class="workout-day" success="1" size="7">
-                        <div class="workout-date">
-                            <p>24 августа 2017 г.</p>
-                        </div>
-                        <div class="workout-day-wrap">
-
-                            <div class="workout-list">
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>5</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>6</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>7</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="workout-day-arrow">
-                                <div class="workout-arrow-icon">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="workout-day-changer">
-                            <i class="fa" aria-hidden="true"></i>
-                        </div>
-                    </div>
-
-                    <div class="workout-day" success="0" size="5">
-                        <div class="workout-date">
-                            <p>24 августа 2017 г.</p>
-                        </div>
-                        <div class="workout-day-wrap">
-
-                            <div class="workout-list">
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>5</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="workout-day-arrow">
-                                <div class="workout-arrow-icon">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="workout-day-changer">
-                            <i class="fa" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="workout-day" success="2" size="6">
-                        <div class="workout-date">
-                            <p>24 августа 2017 г.</p>
-                        </div>
-                        <div class="workout-day-wrap">
-
-                            <div class="workout-list">
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>5</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>6</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="workout-day-arrow">
-                                <div class="workout-arrow-icon">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="workout-day-changer">
-                            <i class="fa" aria-hidden="true"></i>
-                        </div>
-                    </div>
-
-                    <div class="workout-day" success="2" size="5">
-                        <div class="workout-date">
-                            <p>24 августа 2017 г.</p>
-                        </div>
-                        <div class="workout-day-wrap">
-
-                            <div class="workout-list">
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>5</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="workout-day-arrow">
-                                <div class="workout-arrow-icon">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="workout-day-changer">
-                            <i class="fa" aria-hidden="true"></i>
-                        </div>
-                    </div>
-
-                    <div class="workout-day" success="1" size="7">
-                        <div class="workout-date">
-                            <p>24 августа 2017 г.</p>
-                        </div>
-                        <div class="workout-day-wrap">
-
-                            <div class="workout-list">
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>5</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>6</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>7</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="workout-day-arrow">
-                                <div class="workout-arrow-icon">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="workout-day-changer">
-                            <i class="fa" aria-hidden="true"></i>
-                        </div>
-                    </div>
-
-                    <div class="workout-day" success="0" size="5">
-                        <div class="workout-date">
-                            <p>24 августа 2017 г.</p>
-                        </div>
-                        <div class="workout-day-wrap">
-
-                            <div class="workout-list">
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>1</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>2</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>3</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>4</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                                <div class="workout-list-item">
-                                    <div class="workout-iteration-num">
-                                        <p>5</p>
-                                    </div>
-                                    <div class="workout-iteration-value">
-                                        <p>7 x 24.5 кг</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="workout-day-arrow">
-                                <div class="workout-arrow-icon">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="workout-day-changer">
-                            <i class="fa" aria-hidden="true"></i>
-                        </div>
-                    </div>
-
-                    <a class="workout-day-add" href="#6">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                    </a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="workout-group-add">
+	<div id="new-workout" class="workout-group">
+		<div class="workout-title">
+			<input id="new-group-name" type="text" placeholder="Введите название">
+		</div>
+		<div class="workout-progress-area">
+			<div class="workout-group-add-area">
+				<i id="confirm-new-workout" class="fa fa-check-circle" aria-hidden="true"></i>
+				<i id="cancel-new-workout" class="fa fa-times-circle" aria-hidden="true"></i>
+			</div> 
+		</div> 
+	</div>
+	
+    <div id="workout-group-add">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
     </div>
 

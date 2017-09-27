@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Progressor</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/images/favicon.ico" />" type="images/x-icon">
     <link rel="stylesheet" href="<c:url value="/resources/css/main.css" />">
     <link rel="stylesheet" href="<c:url value="/resources/css/workout_day.css" />">
 	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">    
@@ -14,13 +15,13 @@
     <header>
         <ul class="nav-block">
             <li class="nav-elem active">
-                <a class="nav-link" href="#1">Мой прогресс</a>
+                <a class="nav-link" href="/progressor">Мой прогресс</a>
             </li>
             <li class="nav-elem">
                 <a class="nav-link" href="#2">Создать</a>
             </li>
         </ul>
-        <a id="logo" href="#3"><img src="<c:url value="/resources/images/logo.png" />"></a>
+        <a id="logo" href="/progressor"><img src="<c:url value="/resources/images/logo.png" />"></a>
         <ul class="nav-block">
             <li class="nav-elem">
                 <a class="nav-link" href="#4">Регистрация</a>
