@@ -43,6 +43,7 @@ function customization() {
             case "0": customizeDownDay(item); break;
         };
     });
+    //document.querySelector(".owl-nav").classList.remove("disabled");
 };
 
 function customizeUpDay(item) {
@@ -71,39 +72,41 @@ function customizeDownDay(item) {
 };
 
 function workoutGroupAddingHandler() {
-
-}
-
-
-var url = document.location.href;
-var settings = {
-	"url": url,
-	"method": "POST"
-}
-
-$("#workout-group-add").children(".fa").click(function () {
-	/*$("#workout-groups").append(
-		"<div id='new-workout' class='workout-group'>" +
-			"<div class='workout-title'>" +
-	            "<input id='new-group-name' type='text' placeholder='Введите название'>" +
-	        "</div>" +
-	        "<div class='workout-progress-area'>" +
-	        	"<div class='workout-group-add-area'>" +
-	        		"<i id='confirm-new-workout' class='fa fa-check-circle' aria-hidden='true'></i>" +
-	        		"<i id='cancel-new-workout' class='fa fa-times-circle' aria-hidden='true'></i>" +
-	        	"</div>" +
-	        "</div>" +
-		"</div>");*/
+	$("#workout-group-add").children(".fa").click(function () {	
+		$("#workout-group-add").hide();
+		$("#new-workout").show();
+	});
 	
-	$("#workout-group-add").hide();
-	$("#new-workout").show();
-});
+	var settings = {
+			url: "/add_group",
+			type: "POST",
+			dataType: "text",
+			data: {
+				text: $("#new-group-name").val()
+			}/*,
+			success: function (data) {
+				console.log(data);
+			}*/
+	};
+	
+	$("#confirm-new-workout").keyup(function(event) {
+        if(event.keyCode == 13) {
+        	settings.data.text = $('#new-group-name').val();
+        	sendRequest(settings);
+        }
+    });
+	
+	$("#confirm-new-workout").click(function() {
+		settings.data.text = $('#new-group-name').val();
+		sendRequest(settings);
+	});
+	
+	$("#cancel-new-workout").click(function() {
+		$('#new-workout').hide();
+		$("#workout-group-add").show();
+	});
+};
 
-$("#confirm-new-workout").click(function() {
+function sendRequest(settings) {
 	$.ajax(settings);
-});
-
-$("#cancel-new-workout").click(function() {
-	$('#new-workout').hide();
-	$("#workout-group-add").show();
-});
+};

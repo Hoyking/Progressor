@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+.workout-group {
+    margin-top: 30px;
+    width: 90%;
+    padding-bottom: 22px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: rgba(103, 103, 103, 0.9);
+    border-radius: 10px;
+}
+
+.workout-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ubuntu Light';
+    color: #e0e0e0;
+    text-align: center;
+    font-size: 26px;
+}
+
+.workout-title > p {
+    margin: 5px 0px;
+}
+
+.workout-progress-area {
+    margin: 0px 34px;
+    width: calc(100% - 68px);
+    border-top: 3px solid #333333;
+    border-bottom: 3px solid #333333;
+}
+
+.workout-car-wrap {
+    width: calc(100% - 240px);
+    margin: 15px 120px;
+}
+
+.workout-day {
+    width: 261px;
+    border-radius: 10px;
+    border: 3px solid;
+    background-color: #8d8d8d;
+    margin: 0px auto;
+}
+
+.workout-day-up {
+    border-color: #125812;
+}
+
+.workout-day-up > .workout-day-wrap > .workout-day-arrow {
+    border-color: #125812;
+}
+
+.workout-day-repeat {
+    border-color: #d16c09;
+}
+
+.workout-day-repeat > .workout-day-wrap > .workout-day-arrow {
+    border-color: #d16c09;
+}
+
+.workout-day-down {
+    border-color: #ec2e2e;
+}
+
+.workout-day-down > .workout-day-wrap > .workout-day-arrow {
+    border-color: #ec2e2e;
+}
+
+.workout-date {
+    margin: 0px 18px;
+    border-bottom: 2px solid #494949;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Ubuntu Light";
+    font-size: 20px;
+    color: white;
+}
+
+.workout-day-wrap {
+    display: inline-flex;
+    margin: 11px 18px 0px;
+    width: 243px;
+}
+
+.workout-day-changer {
+    width: 100%;
+    height: 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.workout-day-changer-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: white;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.workout-day-changer-active:hover {
+    background-color: #a1a1a1;
+}
+
+.workout-list {
+    font-family: "Ubuntu Light";
+    font-size: 18px;
+    color: white;
+    width: 170px;
+    height: 115px;
+    overflow: hidden;
+}
+
+.workout-list-item {
+	margin-bottom: 1px;
+    display: inline-flex;
+    width: 170px;
+    height: 20px;
+    border-bottom: 2px solid #494949;
+}
+
+.workout-iteration-num {
+    border-right: 2px solid #494949;
+    width: 18px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.workout-iteration-value {
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.workout-day-arrow {
+    background-color: #acacac;
+    width: 55px;
+    height: 45px;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+    border-left: 3px solid;
+    border-bottom-left-radius: 25.5px;
+    border-top-left-radius: 25.5px;
+    margin-left: 15px;
+    margin-top: 40px;
+}
+
+.workout-arrow-icon {
+    font-size: 48px;
+    margin-left: 2px;
+    margin-top: -1px;
+}
+
+.workout-day-up > .workout-day-wrap > .workout-day-arrow > .workout-arrow-icon {
+    color: #125812;
+}
+
+.workout-day-repeat > .workout-day-wrap > .workout-day-arrow > .workout-arrow-icon {
+    color: #d16c09;
+}
+
+.workout-day-down > .workout-day-wrap > .workout-day-arrow > .workout-arrow-icon {
+    color: #ec2e2e;
+}
+
+.owl-nav {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+
+.owl-nav > [class*='owl-'] {
+    position: absolute;
+    color: #FFF;
+    font-size: 32px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 21.5px;
+}
+
+.owl-nav > [class*='owl-']:hover {
+    background: #acacac;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.owl-prev {
+    top: 73px;
+    left: -50px;
+    padding: 5px 15.28px;
+}
+
+.owl-next {
+    top: 73px;
+    right: -50px;
+    padding: 5px 15.28px;
+}
+
+.owl-first {
+    top: 73px;
+    left: -105px;
+    padding: 5px 11.85px;
+}
+
+.owl-last {
+    top: 73px;
+    right: -105px;
+    padding: 5px 11.85px;
+}
+
+.workout-day-add {
+    margin: auto;
+    text-decoration: none;
+    width: 267px;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c8c8c8;
+    font-size: 100px;
+}
+
+.workout-day-add > i {
+    margin-top: 5px;
+}
+
+.workout-day-add:hover {
+    color: #dcdcdc;
+}
+
+#workout-group-add {
+    margin: auto;
+    margin-top: 35px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c8c8c8;
+    font-size: 200px;
+}
+
+#workout-group-add > i:hover {
+    color: #dcdcdc;
+    cursor: pointer;
+}
+
+.workout-group-add-area {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 220px;
+}
+
+.workout-title > input {
+    background-color: #676767;
+    font-family: 'Ubuntu Light';
+    color: #e0e0e0;
+    text-align: center;
+    font-size: 26px;
+    border: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    outline: none;
+}
+
+.workout-title > input::-moz-placeholder {
+    color: #C8C8C8;
+}
+
+.workout-title > input::-webkit-input-placeholder {
+    color: #9b9b9b;
+}
+
+.workout-title > input:-ms-input-placeholder {
+    color: #C8C8C8;
+}
+
+#confirm-new-workout {
+    text-decoration: none;
+    color: #c8c8c8;
+    font-size: 100px;
+    margin: 0px 30px;
+}
+
+#confirm-new-workout:hover {
+	cursor: pointer;
+    color: #dcdcdc;
+}
+
+#cancel-new-workout {
+    text-decoration: none;
+    color: #c8c8c8;
+    font-size: 100px;
+    margin: 0px 30px;
+}
+
+#cancel-new-workout:hover {
+	cursor: pointer;
+    color: #dcdcdc;
+}

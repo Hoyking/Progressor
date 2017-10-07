@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+.workout-group {
+    margin-top: 30px;
+    width: 90%;
+    padding-bottom: 22px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: rgba(103, 103, 103, 0.9);
+    border-radius: 10px;
+}
+
+.workout-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    font-family: 'Ubuntu Light';
+    color: #e0e0e0;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.workout-progress-area {
+    margin: 0px 34px;
+    padding: 14px 0px;
+    width: calc(100% - 68px);
+    border-top: 3px solid #333333;
+    border-bottom: 3px solid #333333;
+    display: flex;
+    justify-content: center;
+}
+
+#calendar2 {
+    width: 200px;
+    font-family: monospace;
+    line-height: 1.2em;
+    font-size: 15px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+#calendar2 thead tr:last-child {
+    font-size: 12px;
+    color: rgb(85, 85, 85);
+}
+
+#calendar2 thead tr:nth-child(1) td:nth-child(2) {
+    color: rgb(50, 50, 50);
+}
+
+#calendar2 thead tr:nth-child(1) td:nth-child(1):hover, #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {
+    cursor: pointer;
+}
+
+#calendar2 tbody td {
+    color: rgb(44, 86, 122);
+    border: 1px solid white;
+}
+
+#calendar2 tbody td#chosen {
+    color: rgb(44, 86, 122);
+    border: 1px solid red;
+}
+
+#calendar2 tbody td.today#chosen {
+    color: rgb(44, 86, 122);
+    border: 1px solid red;
+    background: rgb(220, 0, 0);
+    color: #fff;
+}
+
+#calendar2 tbody td:nth-child(n+6), #calendar2 .holiday {
+    color: rgb(231, 140, 92);
+}
+
+#calendar2 tbody td.today {
+    background: rgb(220, 0, 0);
+    color: #fff;
+}
+
+td {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: default;
+}
+
+.valid {
+    cursor: pointer;
+}
+
+.workout-day-prop-wrap {
+    margin: 0px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.workout-day-prop {
+    display: inline-flex;
+    font-family: 'Ubuntu Light';
+    font-size: 14px;
+    color: white;
+}
+
+.workout-day-prop > input {
+    height: 19px;
+    margin-right: 7px;
+    margin-top: 8px;
+}
+
+.workout-day-prop > p {
+    margin: 0px;
+    margin-right: 2px;
+    margin-top: 8px;
+}
+
+.workout-day-prop > .fa {
+    font-size: 36px;
+    color: #00ac00;
+    margin-left: 8px;
+    opacity: 0.8;
+}
+
+.workout-day-prop > .fa:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.workout-day-list {
+    font-family: "Ubuntu Light";
+    font-size: 18px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px;
+    margin-top: 5px;
+    width: 394px;
+    min-height: 104px;
+    border-radius: 10px;
+    border: 3px solid #333333;
+    background-color: #8d8d8d;
+}
+
+.workout-day-list-item {
+    display: inline-flex;
+    height: 20px;
+    border-bottom: 1.5px solid #494949;
+    font-family: "Ubuntu Light";
+}
+
+.workout-set-num {
+    border-right: 1.5px solid #494949;
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.workout-set-value {
+    width: 180px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.workout-day-indic-wrap {
+    margin-right: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 88px;
+    height: 190px;
+    border: 1px solid #333333;
+    border-radius: 20px;
+    background-color: #acacac;
+}
+
+.indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+}
+
+.indicator:hover {
+    cursor: pointer;
+}
+
+.indicator > p {
+    font-family: "Ubuntu Light";
+    font-size: 12px;
+    margin: 0;
+}
+
+.indicator > .fa {
+    font-size: 36px;
+}
+
+.chosen {
+    opacity: 1;
+}
+
+#up-wrap {
+    color: #125812;
+}
+
+#repeat-wrap {
+    color: #d16c09;
+}
+
+#down-wrap {
+    color: #ec2e2e;
+}
+
+
+
+
+
