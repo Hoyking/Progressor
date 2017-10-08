@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
-
 body {
     background: url("../images/background.jpg") no-repeat fixed;
     background-size: cover;
@@ -9,9 +7,13 @@ body {
 header {
     background-color: #d0d0d0;
     height: 75px;
+    width: 100%;
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 #logo {

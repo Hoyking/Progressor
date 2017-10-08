@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "groups")
+@Table(name = "groups", uniqueConstraints = {@UniqueConstraint(columnNames = {"name"})})
 public class WorkoutGroup {
 
     @Id
@@ -17,7 +17,7 @@ public class WorkoutGroup {
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List <WorkoutDay> days;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     public List<WorkoutDay> getDays() {

@@ -43,7 +43,6 @@ function customization() {
             case "0": customizeDownDay(item); break;
         };
     });
-    //document.querySelector(".owl-nav").classList.remove("disabled");
 };
 
 function customizeUpDay(item) {
@@ -76,17 +75,27 @@ function workoutGroupAddingHandler() {
 		$("#workout-group-add").hide();
 		$("#new-workout").show();
 	});
-	
+
+	var getSettings = {
+	    url: "/",
+        type: "GET"
+    }
+
+    var url = location.href;
+
 	var settings = {
 			url: "/add_group",
 			type: "POST",
 			dataType: "text",
 			data: {
 				text: $("#new-group-name").val()
-			}/*,
-			success: function (data) {
-				console.log(data);
-			}*/
+			},
+			success: function () {
+				location.href = url;
+			},
+            error: function () {
+                $("#error-message").show();
+            }
 	};
 	
 	$("#confirm-new-workout").keyup(function(event) {

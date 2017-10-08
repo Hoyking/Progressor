@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/progress.css' />">
     <link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css' />">
     <link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/resources/css/font.css' />">
 </head>
 <body>
 
@@ -37,7 +38,7 @@
 <div id="workout-groups">
 
     <c:forEach var="group" items="${groups}">
-        <div class="workout-group">
+        <div id="group-${group.id}" class="workout-group">
 
             <div class="workout-title">
                 <p>${group.name}<p>
@@ -85,7 +86,7 @@
                             </div>
                         </c:forEach>
 
-                        <a class="workout-day-add" href="#">
+                        <a id="add-day-of-group-${group.id}" class="workout-day-add" href="#">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </a>
 
@@ -100,6 +101,7 @@
 <div id="new-workout" class="workout-group">
     <div class="workout-title">
         <input id="new-group-name" type="text" placeholder="Введите название">
+        <p id="error-message">Название не должно быть пустым или дублировать название другой группы</p>
     </div>
     <div class="workout-progress-area">
         <div class="workout-group-add-area">
@@ -113,7 +115,7 @@
     <i class="fa fa-plus-circle" aria-hidden="true"></i>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="<c:url value='/resources/js/jquery-3.2.1.min.js' />"></script>
 <script src="<c:url value='/resources/js/owl.carousel.js' />"></script>
 <script src="<c:url value='/resources/js/carousel.js' />"></script>
 <script src="<c:url value='/resources/js/visualization.js' />"></script>

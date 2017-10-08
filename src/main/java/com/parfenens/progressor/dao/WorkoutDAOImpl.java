@@ -1,5 +1,7 @@
 package com.parfenens.progressor.dao;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class WorkoutDAOImpl implements WorkoutDAO {
     private SessionFactory sessionFactory;// = (LocalSessionFactoryBean)context.getBean(LocalSessionFactoryBean.class);
 
     @Override
-    public long addGroup(WorkoutGroup group) {
+    public synchronized long addGroup(WorkoutGroup group) throws SQLIntegrityConstraintViolationException {
         sessionFactory.getCurrentSession().save(group);
         return group.getId();
     }

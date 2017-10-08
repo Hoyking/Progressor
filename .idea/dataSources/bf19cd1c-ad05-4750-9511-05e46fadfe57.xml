@@ -35,43 +35,61 @@
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="14" parent="7" name="PRIMARY">
+    <index id="14" parent="7" name="FKiu3q8j12xfw9m7fa3yh1sawyg">
+      <ColNames>groupId</ColNames>
+    </index>
+    <key id="15" parent="7" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dayId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="15" parent="8" name="groupId">
+    <foreign-key id="16" parent="7" name="FKiu3q8j12xfw9m7fa3yh1sawyg">
+      <ColNames>groupId</ColNames>
+      <RefSchemaName>progressordb</RefSchemaName>
+      <RefTableName>groups</RefTableName>
+      <RefColNames>groupId</RefColNames>
+    </foreign-key>
+    <column id="17" parent="8" name="groupId">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="16" parent="8" name="name">
+    <column id="18" parent="8" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="17" parent="8" name="PRIMARY">
+    <index id="19" parent="8" name="groups_name_uindex">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="20" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>groupId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="18" parent="9" name="setId">
+    <key id="21" parent="8" name="groups_name_uindex">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>groups_name_uindex</UnderlyingIndexName>
+    </key>
+    <column id="22" parent="9" name="setId">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="19" parent="9" name="weight">
+    <column id="23" parent="9" name="weight">
       <Position>2</Position>
       <DataType>double|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="20" parent="9" name="reps">
+    <column id="24" parent="9" name="reps">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="21" parent="9" name="PRIMARY">
+    <key id="25" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>setId</ColNames>
       <Primary>1</Primary>
