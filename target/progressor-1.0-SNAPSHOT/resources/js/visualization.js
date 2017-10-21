@@ -30,9 +30,9 @@ function expand(){
                     height: height+"px"
                 }, 100, "linear");
             });
-        };
+        }
     });
-};
+}
 
 function customization() {
 	$("#new-workout").hide();
@@ -41,9 +41,9 @@ function customization() {
             case "2": customizeUpDay(item); break;
             case "1": customizeRepeatDay(item); break;
             case "0": customizeDownDay(item); break;
-        };
+        }
     });
-};
+}
 
 function customizeUpDay(item) {
     item.classList.add("workout-day-up");
@@ -52,7 +52,7 @@ function customizeUpDay(item) {
     querySelector(".workout-arrow-icon").querySelector(".fa").
     classList.add("fa-arrow-circle-o-up");
 
-};
+}
 
 function customizeRepeatDay(item) {
     item.classList.add("workout-day-repeat");
@@ -60,7 +60,7 @@ function customizeRepeatDay(item) {
     item.querySelector(".workout-day-wrap").querySelector(".workout-day-arrow").
     querySelector(".workout-arrow-icon").querySelector(".fa").
     classList.add("fa-repeat");
-};
+}
 
 function customizeDownDay(item) {
     item.classList.add("workout-day-down");
@@ -68,20 +68,16 @@ function customizeDownDay(item) {
     item.querySelector(".workout-day-wrap").querySelector(".workout-day-arrow").
     querySelector(".workout-arrow-icon").querySelector(".fa").
     classList.add("fa-arrow-circle-o-down");
-};
+}
 
 function workoutGroupAddingHandler() {
-	$("#workout-group-add").children(".fa").click(function () {	
-		$("#workout-group-add").hide();
-		$("#new-workout").show();
-	});
+	$("#workout-group-add").children(".fa").click(addGroupModOn);
+	$(".nav-elem")[1].onclick = addGroupModOn;
 
 	var getSettings = {
 	    url: "/",
         type: "GET"
-    }
-
-    var url = location.href;
+    };
 
 	var settings = {
 			url: "/add_group",
@@ -91,31 +87,48 @@ function workoutGroupAddingHandler() {
 				text: $("#new-group-name").val()
 			},
 			success: function () {
-				location.href = url;
+				location.reload();
 			},
             error: function () {
                 $("#error-message").show();
             }
 	};
 	
-	$("#confirm-new-workout").keyup(function(event) {
+	$("#confirm-new-day").keyup(function(event) {
         if(event.keyCode == 13) {
         	settings.data.text = $('#new-group-name').val();
         	sendRequest(settings);
         }
     });
 	
-	$("#confirm-new-workout").click(function() {
+	$("#confirm-new-day").click(function() {
 		settings.data.text = $('#new-group-name').val();
 		sendRequest(settings);
 	});
 	
-	$("#cancel-new-workout").click(function() {
-		$('#new-workout').hide();
-		$("#workout-group-add").show();
-	});
-};
+	$("#cancel-new-day").click(addGroupModOff);
+}
+
+function addGroupModOn() {
+    $("#workout-group-add").hide();
+    $("#new-workout").show();
+    var navs = $(".nav-elem");
+    navs[0].classList.remove("active");
+    navs[1].classList.add("active");
+
+    $("body").animate({scrollTop: document.body.scrollHeight}, 700);
+}
+
+function addGroupModOff() {
+    $('#new-workout').hide();
+    $("#workout-group-add").show();
+    var navs = $(".nav-elem");
+    navs[1].classList.remove("active");
+    navs[0].classList.add("active");
+
+    $("#error-message").hide();
+}
 
 function sendRequest(settings) {
 	$.ajax(settings);
-};
+}

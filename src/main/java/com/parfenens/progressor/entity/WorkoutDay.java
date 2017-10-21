@@ -1,9 +1,9 @@
 package com.parfenens.progressor.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "days")
@@ -12,13 +12,12 @@ public class WorkoutDay {
     @Id
     @Column(name = "dayId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long dayId;
-
-    @Column(name = "groupId", insertable = false, updatable = false)
-    private Long groupId;
 
     @ManyToOne
     @JoinColumn(name = "groupId")
+    @JsonIgnore
     private WorkoutGroup group;
 
     @OneToMany(mappedBy = "day", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -30,20 +29,6 @@ public class WorkoutDay {
     @Column(name = "type")
     private int type;
 
-    /*public WorkoutDay() {
-        sets = new ArrayList <WorkoutSet> ();
-    }
-
-    public WorkoutDay(List <WorkoutSet> sets, String date, int type) {
-        this.sets = sets;
-        this.setDate(date);
-        this.type = type;
-    }
-
-    public void addSet(WorkoutSet set) {
-        sets.add(set);
-    }
-    */
     public List<WorkoutSet> getSets() {
         return sets;
     }
@@ -66,6 +51,14 @@ public class WorkoutDay {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public WorkoutGroup getGroup() {
+        return group;
+    }
+
+    public void setGroup(WorkoutGroup group) {
+        this.group = group;
     }
 
 }

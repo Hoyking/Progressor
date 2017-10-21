@@ -1,32 +1,22 @@
 package com.parfenens.progressor.config;
 
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.cfg.AvailableSettings;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.parfenens.progressor.entity.WorkoutDay;
-import com.parfenens.progressor.entity.WorkoutGroup;
-import com.parfenens.progressor.entity.WorkoutSet;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import javax.sql.DataSource;
+import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-//@EnableWebMvc
+@EnableWebMvc
 @ComponentScans(value = {
 		@ComponentScan("com.parfenens.progressor.dao"),
 		@ComponentScan("com.parfenens.progressor.service"),

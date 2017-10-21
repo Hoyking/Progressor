@@ -1,19 +1,17 @@
 package com.parfenens.progressor.service;
 
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.List;
-
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.parfenens.progressor.dao.WorkoutDAO;
 import com.parfenens.progressor.entity.WorkoutDay;
 import com.parfenens.progressor.entity.WorkoutGroup;
 import com.parfenens.progressor.entity.WorkoutSet;
+import com.parfenens.progressor.exception.EmptySetListException;
 import com.parfenens.progressor.exception.EmptyWorkoutGroupNameException;
+import com.parfenens.progressor.exception.WrongSetValueException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class WorkoutServiceImpl implements WorkoutService {
@@ -23,26 +21,31 @@ public class WorkoutServiceImpl implements WorkoutService {
 	
 	@Override
 	@Transactional
-	public long addGroup(WorkoutGroup group) throws SQLIntegrityConstraintViolationException{//, EmptyWorkoutGroupNameException{
+	public void addGroup(WorkoutGroup group) throws EmptyWorkoutGroupNameException {
 		if(group.getName().length() == 0)
 		    throw new EmptyWorkoutGroupNameException("The name of workout group should not be empty");
-		return workoutDAO.addGroup(group);
+		workoutDAO.addGroup(group);
 	}
+
+    @Override
+    @Transactional
+    public WorkoutGroup getGroupByGroupId(long id) {
+        return workoutDAO.getGroupByGroupId(id);
+    }
 
 	@Override
 	@Transactional
-	public long addDay(WorkoutDay day) {
-		workoutDAO.addDay(day);
-		return 0;
-	}
-
-	@Override
-	@Transactional
-	public long addSet(WorkoutSet set) {
-		workoutDAO.addSet(set);
-
-		return 0;
-	}
+	public void addDay(WorkoutDay day) throws WrongSetValueException, EmptySetListException {
+	    if(day.getSets().size() == 0) {
+	        throw new EmptySetListException("Empty list of workout sets");
+        }
+        for (WorkoutSet set : day.getSets()) {
+            if (set.getReps() == 0 || set.getWeight() == 0) {
+                throw new WrongSetValueException("Some set field has wrong value");
+            }
+        }
+        workoutDAO.addDay(day);
+    }
 
 	@Override
 	@Transactional

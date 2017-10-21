@@ -21,7 +21,7 @@
             <a class="nav-link" href="/">Мой прогресc</a>
         </li>
         <li class="nav-elem">
-            <a class="nav-link" href="#2">Создать</a>
+            <a class="nav-link">Создать</a>
         </li>
     </ul>
     <a id="logo" href="/"><img src="<c:url value='/resources/images/logo.png' />"></a>
@@ -86,7 +86,8 @@
                             </div>
                         </c:forEach>
 
-                        <a id="add-day-of-group-${group.id}" class="workout-day-add" href="#">
+                        <a id="add-day-of-group-${group.id}" class="workout-day-add"
+                           href="<c:url value='/add_day?group_id=${group.id}' />">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </a>
 
@@ -104,9 +105,9 @@
         <p id="error-message">Название не должно быть пустым или дублировать название другой группы</p>
     </div>
     <div class="workout-progress-area">
-        <div class="workout-group-add-area">
-            <i id="confirm-new-workout" class="fa fa-check-circle" aria-hidden="true"></i>
-            <i id="cancel-new-workout" class="fa fa-times-circle" aria-hidden="true"></i>
+        <div class="workout-day-add-area">
+            <i id="confirm-new-day" class="fa fa-check-circle" aria-hidden="true"></i>
+            <i id="cancel-new-day" class="fa fa-times-circle" aria-hidden="true"></i>
         </div>
     </div>
 </div>

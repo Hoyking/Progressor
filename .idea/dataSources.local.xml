@@ -9,7 +9,7 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
       <user-name>progressor_user</user-name>
-      <introspection-schemas>*:progressordb</introspection-schemas>
+      <introspection-schemas>*:progressordb,progressordb_released</introspection-schemas>
     </data-source>
   </component>
 </project>

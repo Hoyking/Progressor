@@ -47,4 +47,5 @@ header {
 
 .nav-block > .nav-elem > .nav-link:hover {
     text-decoration: underline;
+    cursor: pointer;
 }

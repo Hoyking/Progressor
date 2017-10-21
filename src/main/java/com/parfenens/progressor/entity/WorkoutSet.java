@@ -1,14 +1,8 @@
 package com.parfenens.progressor.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "sets")
@@ -17,10 +11,12 @@ public class WorkoutSet {
     @Id
     @Column(name = "setId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long setId;
 
     @ManyToOne
     @JoinColumn(name = "dayId")
+    @JsonIgnore
     private WorkoutDay day;
 
     @Column(name = "weight")
@@ -28,11 +24,6 @@ public class WorkoutSet {
 
     @Column(name = "reps")
     private int reps;
-
-	/*public WorkoutSet(double weight, int reps) {
-		this.weight = weight;
-		this.reps = reps;
-	}*/
 
     public double getWeight() {
         return weight;
@@ -48,6 +39,14 @@ public class WorkoutSet {
 
     public void setReps(int reps) {
         this.reps = reps;
+    }
+
+    public WorkoutDay getDay() {
+        return day;
+    }
+
+    public void setDay(WorkoutDay day) {
+        this.day = day;
     }
 
 }

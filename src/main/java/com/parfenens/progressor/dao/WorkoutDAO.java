@@ -1,23 +1,18 @@
 package com.parfenens.progressor.dao;
 
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.List;
-
-import org.springframework.stereotype.Repository;
-
 import com.parfenens.progressor.entity.WorkoutDay;
 import com.parfenens.progressor.entity.WorkoutGroup;
-import com.parfenens.progressor.entity.WorkoutSet;
+
+import java.util.List;
 
 public interface WorkoutDAO {
 
-    public long addGroup(WorkoutGroup group) throws SQLIntegrityConstraintViolationException;
+    void addGroup(WorkoutGroup group);
 
-    public long addDay(WorkoutDay day);
+    WorkoutGroup getGroupByGroupId(long id);
 
-    public long addSet(WorkoutSet set);
+    void addDay(WorkoutDay day);
 
-    public List<WorkoutGroup> getGroups();
+    List<WorkoutGroup> getGroups();
 
 }

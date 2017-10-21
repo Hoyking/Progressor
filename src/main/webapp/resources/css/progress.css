@@ -242,7 +242,6 @@
 }
 
 #workout-group-add {
-    margin: auto;
     margin-top: 35px;
     text-decoration: none;
     display: flex;
@@ -257,7 +256,7 @@
     cursor: pointer;
 }
 
-.workout-group-add-area {
+.workout-day-add-area {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -293,26 +292,26 @@
     margin-bottom: 30px;
 }
 
-#confirm-new-workout {
+#confirm-new-day {
     text-decoration: none;
     color: #c8c8c8;
     font-size: 100px;
     margin: 0px 30px;
 }
 
-#confirm-new-workout:hover {
+#confirm-new-day:hover {
 	cursor: pointer;
     color: #dcdcdc;
 }
 
-#cancel-new-workout {
+#cancel-new-day {
     text-decoration: none;
     color: #c8c8c8;
     font-size: 100px;
     margin: 0px 30px;
 }
 
-#cancel-new-workout:hover {
+#cancel-new-day:hover {
 	cursor: pointer;
     color: #dcdcdc;
 }

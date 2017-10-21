@@ -1,9 +1,7 @@
 package com.parfenens.progressor.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "groups", uniqueConstraints = {@UniqueConstraint(columnNames = {"name"})})
