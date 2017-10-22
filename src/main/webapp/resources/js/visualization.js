@@ -74,13 +74,8 @@ function workoutGroupAddingHandler() {
 	$("#workout-group-add").children(".fa").click(addGroupModOn);
 	$(".nav-elem")[1].onclick = addGroupModOn;
 
-	var getSettings = {
-	    url: "/",
-        type: "GET"
-    };
-
 	var settings = {
-			url: "/add_group",
+			url: $("#logo").attr("href") + "add_group",
 			type: "POST",
 			dataType: "text",
 			data: {

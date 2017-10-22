@@ -33,7 +33,7 @@ $(document).ready(function() {
     $('#confirm').click(fillDay);
     $('#confirm-new-day').click(sendData);
     $('#cancel-new-day').click(function() {
-        window.location.href = "http://localhost:8080";
+        window.location.href = $("#logo").attr("href");
     });
 
     $('#set').keyup(function(event) {
@@ -149,12 +149,12 @@ function sendData() {
     var values = parameter.split("=");
 
     var settings = {
-        url: "/add_day" + "?" + values[0] + "=" + values[1],
+        url: $("#logo").attr("href") + "add_day" + "?" + values[0] + "=" + values[1],
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function(message) {
-            window.location.href = "http://localhost:8080";
+            window.location.href = $("#logo").attr("href");
         },
         error: function () {
             $("#error-message").show();

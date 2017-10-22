@@ -18,13 +18,13 @@
 <header>
     <ul class="nav-block">
         <li class="nav-elem active">
-            <a class="nav-link" href="/">Мой прогресc</a>
+            <a class="nav-link" href="<c:url value='/' />">Мой прогресc</a>
         </li>
         <li class="nav-elem">
             <a class="nav-link">Создать</a>
         </li>
     </ul>
-    <a id="logo" href="/"><img src="<c:url value='/resources/images/logo.png' />"></a>
+    <a id="logo" href="<c:url value='/' />"><img src="<c:url value='/resources/images/logo.png' />"></a>
     <ul class="nav-block">
         <li class="nav-elem">
             <a class="nav-link" href="#4">Регистрация</a>
