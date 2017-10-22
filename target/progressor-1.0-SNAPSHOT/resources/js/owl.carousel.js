@@ -4,6 +4,7 @@
  * Licensed under  ()
  */
 capacity = 0;
+activeItems = 0;
 /**
  * Owl carousel
  * @version 2.1.6
@@ -448,6 +449,8 @@ capacity = 0;
 	 * @protected
 	 */
 	Owl.prototype.initialize = function() {
+	    activeItems = this.settings.items;
+
 		this.enter('initializing');
 		this.trigger('initialize');
 
@@ -1671,7 +1674,7 @@ capacity = 0;
 				$this.data('owl.carousel', data);
 
 				$.each([
-					'next', 'prev', 'first', 'last', 'to', 'destroy', 'refresh', 'replace', 'add', 'remove'
+					'next', 'prev', 'first', 'last', 'pre_last', 'to', 'destroy', 'refresh', 'replace', 'add', 'remove'
 				], function(i, event) {
 					data.register({ type: Owl.Type.Event, name: event });
 					data.$element.on(event + '.owl.carousel.core', $.proxy(function(e) {
@@ -2815,12 +2818,12 @@ capacity = 0;
 	 */
 	Navigation.Defaults = {
 		nav: false,
-		navText: [ 'prev', 'next', 'first', 'last' ],
+		navText: [ 'prev', 'next', 'first', 'last', 'pre_last' ],
 		navSpeed: false,
 		navElement: 'div',
 		navContainer: false,
 		navContainerClass: 'owl-nav',
-		navClass: [ 'owl-prev', 'owl-next', 'owl-first', 'owl-last' ],
+		navClass: [ 'owl-prev', 'owl-next', 'owl-first', 'owl-last', 'owl-pre-last' ],
 		slideBy: 1,
 		dotClass: 'owl-dot',
 		dotsClass: 'owl-dots',
@@ -2869,7 +2872,15 @@ capacity = 0;
             .html(settings.navText[3])
             .appendTo(this._controls.$relative)
             .on('click', $.proxy(function(e) {
-            	var index = e.currentTarget.parentNode.previousSibling.childNodes.item(0).childNodes.length - 1;
+            	var index = e.currentTarget.parentNode.previousSibling.childNodes.item(0).childNodes.length - activeItems;
+                this.to(index, 150, true);
+            }, this));
+        this._controls.$pre_last = $('<' + settings.navElement + '>')
+            .addClass(settings.navClass[4])
+            .html(settings.navText[4])
+            .appendTo(this._controls.$relative)
+            .on('click', $.proxy(function(e) {
+                var index = e.currentTarget.parentNode.previousSibling.childNodes.item(0).childNodes.length - activeItems - 1;
                 this.to(index, 150, true);
             }, this));
 

@@ -3,8 +3,13 @@ $(function() {
        expand();
        customization();
        workoutGroupAddingHandler();
+       scrollAnimation();
    });
 });
+
+function scrollAnimation() {
+    $(".last-day-item").click();
+}
 
 function expand(){
     [].forEach.call(document.getElementsByClassName("workout-day"), function(day) {

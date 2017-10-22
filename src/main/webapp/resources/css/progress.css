@@ -221,6 +221,10 @@
     padding: 5px 11.85px;
 }
 
+.owl-pre-last {
+    display: none;
+}
+
 .workout-day-add {
     margin: auto;
     text-decoration: none;
