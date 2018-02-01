@@ -1,4 +1,4 @@
-var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "августа", "сентября", "октября", "ноября", "декабря"];
+var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
 
 $(function() {
     Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
@@ -122,7 +122,7 @@ function sendData() {
     var month = $("#calendar2 > thead > tr")[0].childNodes[1].getAttribute("data-month");
     var year = $("#calendar2 > thead > tr")[0].childNodes[1].getAttribute("data-year");
 
-    var date = day + " " + months[month - 2 + 1] + " " + year + " г.";
+    var date = day + " " + months[month] + " " + year + " г.";
 
     var data = {
         date : date,

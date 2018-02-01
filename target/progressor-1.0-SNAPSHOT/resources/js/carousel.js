@@ -6,7 +6,8 @@ $(function() {
             nav: true,
             dots: false,
             navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>",
-                "<i class='fa fa-angle-double-left' aria-hidden='true'></i>", "<i class='fa fa-angle-double-right' aria-hidden='true'></i>"],
+                "<i class='fa fa-angle-double-left' aria-hidden='true'></i>", "<i class='fa fa-angle-double-right' aria-hidden='true'></i>",
+                "<i class='last-day-item'>"],
             responsive: {
                 0: {
                     items: 1
